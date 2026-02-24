@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Environment variables (keep .env.example, ignore real .env)
+server/.env
+.env
+
+# SQLite database files
+server/*.db
+server/*.db-shm
+server/*.db-wal
+
+# Build output (optional: remove this line if you want to commit the build)
+# client/build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE files
+.vscode/
+.idea/
+
+# Claude AI config
+.claude/
