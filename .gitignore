@@ -8,7 +8,7 @@ server/.env
 .env
 
 # SQLite database files
-server/*.db
+
 server/*.db-shm
 server/*.db-wal
 
