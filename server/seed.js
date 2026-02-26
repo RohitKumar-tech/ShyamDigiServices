@@ -1,5 +1,12 @@
 const db = require('./database');
 
+// Only run if database is empty (prevents accidental data wipe)
+const existing = db.prepare('SELECT COUNT(*) as count FROM categories').get();
+if (existing.count > 0) {
+  console.log('Database already has data — skipping seed.');
+  process.exit(0);
+}
+
 // Clear existing data
 db.exec('DELETE FROM products');
 db.exec('DELETE FROM categories');

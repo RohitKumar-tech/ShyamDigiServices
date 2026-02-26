@@ -12,6 +12,13 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+// Auto-seed on first run if database is empty
+const categoryCount = db.prepare('SELECT COUNT(*) as count FROM categories').get();
+if (categoryCount.count === 0) {
+  console.log('Empty database detected — running initial seed...');
+  require('./seed');
+}
+
 // Serve static files from React build
 app.use(express.static(path.join(__dirname, '../client/build')));
 
